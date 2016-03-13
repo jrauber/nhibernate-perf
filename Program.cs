@@ -12,6 +12,8 @@ using NHibernate.Caches.SysCache2;
 using System;
 using StackExchange.Redis;
 using NHibernate.Caches.Redis;
+using BenchmarkDotNet.Running;
+using nHibernate4.Benchmarks;
 
 namespace nHibernate4
 {
@@ -22,6 +24,8 @@ namespace nHibernate4
         private static void Main(string[] args)
         {
             XmlConfigurator.Configure(); //Log4Net
+
+            var summary = BenchmarkRunner.Run<SecondLevelCache>();
 
             var connectionMultiplexer = ConnectionMultiplexer.Connect("localhost:6379");
             RedisCacheProvider.SetConnectionMultiplexer(connectionMultiplexer);
