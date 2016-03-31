@@ -11,7 +11,7 @@ namespace nHibernate4.Mapping
             Property(x => x.Quantity);
             Property(x => x.Product);
 
-            ManyToOne(x => x.OrderHead);
+            //ManyToOne(x => x.OrderHead);
 
             Cache(c =>
             {
